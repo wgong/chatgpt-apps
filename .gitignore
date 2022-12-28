@@ -2,6 +2,7 @@
 **/tmp
 **/*.zip
 **/*.tar
+**/*.odt
 
 
 # Byte-compiled / optimized / DLL files
