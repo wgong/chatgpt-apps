@@ -18,3 +18,11 @@ python3.8 main.py
 """
 
 On Ubuntu, Window is created, but nothing displayed
+
+Try on Windows, it worked
+
+- Python 3.8.5 (Anaconda)
+- pip3 install PyQt5==5.10.1  PyQtWebEngine  --user
+downgrade PyQt5 (see https://stackoverflow.com/questions/55794101/valueerrorpycapsule-getpointer-called-with-incorrect-name-with-from-pyqt5-qtwe)
+
+
