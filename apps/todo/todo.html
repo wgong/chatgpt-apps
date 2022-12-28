@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>To-Do List</title>
+  <style>
+    /* Add some style to your app */
+    body {
+      font-family: sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    .todo-list {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .todo-item {
+      padding: 10px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .todo-item:last-child {
+      border-bottom: none;
+    }
+
+    .todo-item.completed {
+      color: #888888;
+      text-decoration: line-through;
+    }
+
+    .todo-input {
+      padding: 10px;
+      border: none;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .todo-button {
+      background-color: #00b0ff;
+      color: #ffffff;
+      font-size: 16px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .todo-button:hover {
+      background-color: #0091ea;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <div class="todo-list">
+    <!-- Add a form for adding new to-do items -->
+    <form id="todo-form">
+      <input type="text" class="todo-input" placeholder="Add a new to-do item" required>
+      <button type="submit" class="todo-button">Add</button>
+    </form>
+
+    <!-- Add a container for the to-do items -->
+    <div id="todo-items"></div>
+  </div>
+
+  <script>
+    // Get references to the form and to-do items container
+    const todoForm = document.getElementById('todo-form');
+    const todoItems = document.getElementById('todo-items');
+
+    // Add a submit event listener to the form
+    todoForm.addEventListener('submit', (event) => {
+      // Prevent the form from submitting
+      event.preventDefault();
+
+      // Get the value of the input field
+      const todoText = document.querySelector('.todo-input').value;
+
+      // Create a new to-do item element
+      const todoItem = document.createElement('div');
+      todoItem.classList.add('todo-item');
+      // Add a checkbox to the to-do item
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.addEventListener('change', (event) => {
+        // Toggle the "completed" class when the checkbox is checked or unchecked
+        if (event.target.checked) {
+          todoItem.classList.add('completed');
+        } else {
+          todoItem.classList.remove('completed');
+        }
+      });
+      todoItem.appendChild(checkbox);
+
+      // Add the to-do text to the to-do item
+      const text = document.createElement('span');
+      text.textContent = todoText;
+      todoItem.appendChild(text);
+
+      // Add a delete button to the to-do item
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        // Remove the to-do item when the delete button is clicked
+        todoItems.removeChild(todoItem);
+      });
+      todoItem.appendChild(deleteButton);
+
+      // Add the to-do item to the to-do items container
+      todoItems.appendChild(todoItem);
+
+      // Reset the form
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* Add some style to your app */
+body {
+  font-family: sans-serif;
+  background-color: #f1f1f1;
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+}
+
+.todo-list {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.todo-item {
+  padding: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item.completed {
+  color: #888888;
+  text-decoration: line-through;
+}
+
+.todo-input {
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 100%;
+}
+
+.todo-button {
+  background-color: #00b0ff;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.todo-button:hover {
+  background-color: #0091ea;
+}
